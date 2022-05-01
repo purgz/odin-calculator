@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id = "header">
+        <h1>Calculator</h1>   
+    </div>
+
+    <div id = "main">
+        <div class = "calc-body">
+            <div class = "display-wrapper">
+                <div class = "display">
+                    <div class = "top"></div>
+                    <div class = "bottom"></div>
+                </div>
+            </div>
+
+            <div class="button-wrapper">
+                <div class = "first-row">
+                    <button >^</button>
+                    <button >!</button>
+                    <button>ans</button>
+                    <button>del</button>
+                    <button onclick = "clearDisplay()">clear</button>
+                </div>
+    
+                <div class = "second-row">
+                    <button class = "digit">7</button>
+                    <button class = "digit">8</button>
+                    <button class = "digit">9</button>
+                    <button >%</button>
+                    <button >√</button>
+    
+                </div>
+                <div class = "third-row">
+                    <button class = "digit">4</button>
+                    <button class = "digit">5</button>
+                    <button class = "digit">6</button>
+                    <button class = "operator" >x</button>
+                    <button class = "operator">÷</button>
+    
+                </div>
+                <div class = "fourth-row">
+                    <button class = "digit">1</button>
+                    <button class = "digit">2</button>
+                    <button class = "digit">3</button>
+                    <button class = "operator">+</button>
+                    <button class = "operator" >-</button>
+                </div>
+                <div class = "fith-row">
+                    <button class = "digit">.</button>
+                    <button class = "digit">0</button>
+                    <button>±</button>
+                    <button id = "enter">ENTER</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id = "footer">Henry Brooks - The Odin Project</div>
+    
+    <script src = "script.js"></script>
+</body>
+</html>
