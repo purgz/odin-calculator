@@ -36,30 +36,55 @@ function operate(operator,num1,num2){
             
     }
 }
-
-var displayValue = "";
-var acc = null;
+var newValue = "";
+var previousValue = "";
 var operator;
 
 const digitBtns = document.querySelectorAll(".digit");
 const currentDisplay = document.querySelector(".bottom");
 const operatorBtns = document.querySelectorAll(".operator");
+const enterBtn = document.querySelector("#enter");
+
+
 
 digitBtns.forEach((button)=>{
     button.addEventListener("click",()=>{
-        displayValue += button.textContent;
-        currentDisplay.textContent = displayValue;
+        //if active operator then enter 2nd value
+        if (operator){
+            newValue += button.textContent;
+            currentDisplay.textContent = newValue;
+        } else {
+            previousValue += button.textContent;
+            currentDisplay.textContent = previousValue;
+        }
     })
 })
 
+//set operator
 operatorBtns.forEach((button)=>{
     button.addEventListener("click",()=>{
-       
+        if (operator){
+            compute();
+        }
+        operator = button.textContent;
     })
 })
 
+enterBtn.addEventListener("click",compute)
+
+//reset
 function clearDisplay(){
-    displayValue = "";
     currentDisplay.textContent = "";
-    acc = null;
+    previousValue = "";
+    newValue = "";
+    operator = null;
 }
+
+
+function compute(){
+    previousValue = operate(operator,previousValue,newValue)
+    newValue = "";
+    currentDisplay.textContent = previousValue;
+    operator = null;
+}
+
