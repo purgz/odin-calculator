@@ -14,6 +14,10 @@ function divide(num1, num2){
     return num2 == 0 ? "Cant divide by zero" : num1 / num2;
 }
 
+function flipSign(num1){
+    return num1 * -1;
+}
+
 function operate(operator,num1,num2){
 
     num1 = Number(num1);
@@ -33,7 +37,8 @@ function operate(operator,num1,num2){
             
         case "-":
             return subtract(num1,num2);
-            
+        case "±":
+            return flipSign(num1)
     }
 }
 var newValue = "";
@@ -44,7 +49,7 @@ const digitBtns = document.querySelectorAll(".digit");
 const currentDisplay = document.querySelector(".bottom");
 const operatorBtns = document.querySelectorAll(".operator");
 const enterBtn = document.querySelector("#enter");
-
+const flipSignBtn = document.querySelector("#plus-minus");
 
 
 digitBtns.forEach((button)=>{
@@ -70,6 +75,13 @@ operatorBtns.forEach((button)=>{
     })
 })
 
+
+flipSignBtn.addEventListener("click",(button)=>{
+    operator = flipSignBtn.textContent;
+    compute();
+})
+
+
 enterBtn.addEventListener("click",compute)
 
 //reset
@@ -79,7 +91,6 @@ function clearDisplay(){
     newValue = "";
     operator = null;
 }
-
 
 function compute(){
     previousValue = operate(operator,previousValue,newValue)
